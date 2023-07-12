@@ -97,7 +97,7 @@ nav:
     - Porting to This Version: 'legacy/porting.md'
 
 # Do not edit in PRs below here
-site_name: Forge Documentation
+site_name: MinecraftForge文档 中文翻译
 site_url: https://docs.minecraftforge.net/en/1.19.x/
 
 markdown_extensions:

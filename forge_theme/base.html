@@ -65,14 +65,14 @@
         </div>
         <nav>
             <ul class="links clearfix">
-                <li><a href="https://minecraftforge.net/">Forums</a></li>
+                <li><a href="https://minecraftforge.net/">Forge论坛</a></li>
             </ul>
         </nav>
         {% block search_form %}
         <form role="search" id="rtd-search-form" class="search" action="{{ base_url }}/search.html" method="get">
             <input type="submit" value="&#xf002;">
             <div class="search-field">
-                <input type="search" title="Search" name="q" placeholder="Search...">
+                <input type="search" title="Search" name="q" placeholder="搜索...">
             </div>
         </form>
         {% endblock %}
@@ -83,24 +83,14 @@
         <aside>
             <section class="sidebar-nav">
                 <h2 class="sidebar-heading">
-                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> Navigation
+                    <a href="#" class="close-sidebar"><i class="fa fa-bars"></i></a> 导航页
                     <form class="version-selection">
-                        <label for="version-selection-dropdown">Docs:</label>
-                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
-                            {% for name, url in config.extra.types.items() %}
-                            <option value="https://docs.minecraftforge.net/en/{{ url }}" {% if name == config.extra.current_type %}selected{% endif %}>{{ name }}</option>
-                            {% endfor %}
-                        </select>
+                        <label for="version-selection-dropdown">MinecraftForge文档 中文翻译</label>
                     </form>
                 </h2>
                 <h2 class="sidebar-heading">
                     <form class="version-selection">
-                        <label for="version-selection-dropdown">Version:</label>
-                        <select id="version-selection-dropdown" class="version-selection-dropdown" onchange="location = this.value;">
-                            {% for name, url in config.extra.versions.items() %}
-                            <option value="https://docs.minecraftforge.net/en/{{ url }}" {% if name == config.extra.current_version %}selected{% endif %}>{{ name }}</option>
-                            {% endfor %}
-                        </select>
+                        <label for="version-selection-dropdown">Minecraft版本: 1.19.x</label>
                     </form>
                 </h2>
                 <ul class="section-content scroll-pane">
