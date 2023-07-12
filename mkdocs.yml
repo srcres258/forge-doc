@@ -1,7 +1,7 @@
 # If you add a page, you must add it to the index here
 nav:
-  - Home: 'index.md'
-  - Contributing to the Docs: 'contributing.md'
+  - 主页: 'index.md'
+  - 向文档做出贡献: 'contributing.md'
   - Getting Started:
     - Introduction: 'gettingstarted/index.md'
     - The Mod Files: 'gettingstarted/modfiles.md'
