@@ -116,7 +116,7 @@ modId = "examplemod2"
 `mandatory`    | boolean | **必需**      | 当依赖未满足时游戏是否崩溃。 | `true`
 `versionRange` | string  | `""`          | 可接受的语言加载器版本范围，以[Maven版本范围][mvr]表示。空字符串表示匹配所有版本。 | `"[1, 2)"`
 `ordering`     | string  | `"NONE"`      | 定义本模组是否必须在所依赖的模组之前（`"BEFORE"`）或之后（`"AFTER"`）加载。`"NONE"`表示不规定顺序。 | `"AFTER"`
-`side`         | string  | `"BOTH"`      | 所依赖模组必须位于的[物理端][dist]：`"CLIENT"`、`"SERVER"`或`"BOTH"`。 | `"CLIENT"`
+`side`         | string  | `"BOTH"`      | 所依赖模组必须位于的[端位][dist]：`"CLIENT"`、`"SERVER"`或`"BOTH"`。 | `"CLIENT"`
 `referralUrl`  | string  | *无*          | 指向依赖下载界面的URL。目前无作用。 | `"https://library.example.com/"`
 
 !!! 警告
