@@ -4,14 +4,14 @@ nav:
   - 向文档做出贡献: 'contributing.md'
   - 入门:
     - 概述: 'gettingstarted/index.md'
-    - Mod文件: 'gettingstarted/modfiles.md'
-    - 规划你的Mod结构: 'gettingstarted/structuring.md'
+    - 模组文件: 'gettingstarted/modfiles.md'
+    - 规划你的模组结构: 'gettingstarted/structuring.md'
     - 版本号: 'gettingstarted/versioning.md'
   - 核心概念:
     - 注册表: 'concepts/registries.md'
     - Sides: 'concepts/sides.md'
     - 事件: 'concepts/events.md'
-    - Mod生命周期: 'concepts/lifecycle.md'
+    - 模组生命周期: 'concepts/lifecycle.md'
     - 资源: 'concepts/resources.md'
     - 国际化与本地化: 'concepts/internationalization.md'
   - 方块:
