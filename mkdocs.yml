@@ -2,99 +2,99 @@
 nav:
   - 主页: 'index.md'
   - 向文档做出贡献: 'contributing.md'
-  - Getting Started:
-    - Introduction: 'gettingstarted/index.md'
-    - The Mod Files: 'gettingstarted/modfiles.md'
-    - Structuring Your Mod: 'gettingstarted/structuring.md'
-    - Versioning: 'gettingstarted/versioning.md'
-  - Core Concepts:
-    - Registries: 'concepts/registries.md'
+  - 入门:
+    - 概述: 'gettingstarted/index.md'
+    - Mod文件: 'gettingstarted/modfiles.md'
+    - 规划你的Mod结构: 'gettingstarted/structuring.md'
+    - 版本号: 'gettingstarted/versioning.md'
+  - 核心概念:
+    - 注册表: 'concepts/registries.md'
     - Sides: 'concepts/sides.md'
-    - Events: 'concepts/events.md'
-    - Mod Lifecycle: 'concepts/lifecycle.md'
-    - Resources: 'concepts/resources.md'
-    - Internationalization: 'concepts/internationalization.md'
-  - Blocks:
-    - Introduction: 'blocks/index.md'
-    - Block States: 'blocks/states.md'
-  - Items:
-    - Introduction: 'items/index.md'
+    - 事件: 'concepts/events.md'
+    - Mod生命周期: 'concepts/lifecycle.md'
+    - 资源: 'concepts/resources.md'
+    - 国际化与本地化: 'concepts/internationalization.md'
+  - 方块:
+    - 概述: 'blocks/index.md'
+    - 方块状态: 'blocks/states.md'
+  - 物品:
+    - 概述: 'items/index.md'
     - BlockEntityWithoutLevelRenderer: 'items/bewlr.md'
-  - Networking:
-    - Introduction: 'networking/index.md'
+  - 网络:
+    - 概述: 'networking/index.md'
     - SimpleImpl: 'networking/simpleimpl.md'
-    - Synchronizing Entities: 'networking/entities.md'
-  - Block Entities:
-    - Introduction: 'blockentities/index.md'
+    - 实体的同步: 'networking/entities.md'
+  - 方块实体:
+    - 概述: 'blockentities/index.md'
     - BlockEntityRenderer: 'blockentities/ber.md'
-  - Game Effects:
-    - Particles: 'gameeffects/particles.md'
-    - Sounds: 'gameeffects/sounds.md'
-  - Data Storage:
+  - 游戏特效:
+    - 粒子效果: 'gameeffects/particles.md'
+    - 音效: 'gameeffects/sounds.md'
+  - 数据储存:
     - Capabilities: 'datastorage/capabilities.md'
     - Saved Data: 'datastorage/saveddata.md'
     - Codecs: 'datastorage/codecs.md'
-  - Graphical User Interfaces:
+  - 图形用户界面:
     - Menus: 'gui/menus.md'
     - Screens: 'gui/screens.md'
-  - Rendering:
-    - Model Extensions:
-      - Introduction: 'rendering/modelextensions/index.md'
-      - Root Transforms: 'rendering/modelextensions/transforms.md'
-      - Render Types: 'rendering/modelextensions/rendertypes.md'
-      - Part Visibility: 'rendering/modelextensions/visibility.md'
-      - Face Data: 'rendering/modelextensions/facedata.md'
-    - Model Loaders:
-      - Introduction: 'rendering/modelloaders/index.md'
-      - Baked Model: 'rendering/modelloaders/bakedmodel.md'
-      - Transform: 'rendering/modelloaders/transform.md'
-      - Item Overrides: 'rendering/modelloaders/itemoverrides.md'
-  - Resources:
-    - Client Assets:
-      - Introduction: 'resources/client/index.md'
-      - Models:
-        - Introduction: 'resources/client/models/index.md'
-        - Texture Tinting: 'resources/client/models/tinting.md'
-        - Item Properties: 'resources/client/models/itemproperties.md'
-    - Server Data:
-      - Introduction: 'resources/server/index.md'
-      - Recipes:
-        - Introduction: 'resources/server/recipes/index.md'
-        - Custom Recipes: 'resources/server/recipes/custom.md'
-        - Ingredients: 'resources/server/recipes/ingredients.md'
-        - Non-Datapack Recipes:  'resources/server/recipes/incode.md'
-      - Loot Tables: 'resources/server/loottables.md'
-      - Global Loot Modifiers: 'resources/server/glm.md'
-      - Tags: 'resources/server/tags.md'
-      - Advancements: 'resources/server/advancements.md'
-      - Conditionally-Loaded Data: 'resources/server/conditional.md'
-  - Data Generation:
-    - Introduction: 'datagen/index.md'
-    - Client Assets:
-      - Model Providers: 'datagen/client/modelproviders.md'
-      - Language Providers: 'datagen/client/localization.md'
-      - Sound Providers: 'datagen/client/sounds.md'
-    - Server Data:
-      - Recipe Providers: 'datagen/server/recipes.md'
-      - Loot Table Providers: 'datagen/server/loottables.md'
-      - Tag Providers: 'datagen/server/tags.md'
-      - Advancement Providers: 'datagen/server/advancements.md'
-      - Global Loot Modifier Providers: 'datagen/server/glm.md'
-      - Datapack Registry Object Providers: 'datagen/server/datapackregistries.md'
-  - Miscellaneous Features:
-    - Configuration: 'misc/config.md'
-    - Key Mappings: 'misc/keymappings.md'
-    - Game Tests: 'misc/gametest.md'
-    - Forge Update Checker: 'misc/updatechecker.md'
-    - Debug Profiler: 'misc/debugprofiler.md'
-  - Advanced Topics:
-    - Access Transformers: 'advanced/accesstransformers.md'
-  - Contributing to Forge:
-    - Introduction: 'forgedev/index.md'
-    - Pull Request Guidelines: 'forgedev/prguidelines.md'
-  - Legacy Versions:
-    - Introduction: 'legacy/index.md'
-    - Porting to This Version: 'legacy/porting.md'
+  - 渲染:
+    - 模型扩展:
+      - 概述: 'rendering/modelextensions/index.md'
+      - 根变换: 'rendering/modelextensions/transforms.md'
+      - 渲染类型: 'rendering/modelextensions/rendertypes.md'
+      - 部分可见度: 'rendering/modelextensions/visibility.md'
+      - 脸部数据: 'rendering/modelextensions/facedata.md'
+    - 模型加载器:
+      - 概述: 'rendering/modelloaders/index.md'
+      - 烘焙模型: 'rendering/modelloaders/bakedmodel.md'
+      - 变换: 'rendering/modelloaders/transform.md'
+      - 物品重载: 'rendering/modelloaders/itemoverrides.md'
+  - 资源:
+    - 客户端资源:
+      - 概述: 'resources/client/index.md'
+      - 模型:
+        - 概述: 'resources/client/models/index.md'
+        - 纹理色调: 'resources/client/models/tinting.md'
+        - 物品属性: 'resources/client/models/itemproperties.md'
+    - 服务端数据:
+      - 概述: 'resources/server/index.md'
+      - 合成表:
+        - 概述: 'resources/server/recipes/index.md'
+        - 自定义合成表: 'resources/server/recipes/custom.md'
+        - 配方: 'resources/server/recipes/ingredients.md'
+        - 非数据包合成表:  'resources/server/recipes/incode.md'
+      - 战利品表: 'resources/server/loottables.md'
+      - 全局战利品修改器: 'resources/server/glm.md'
+      - 标签: 'resources/server/tags.md'
+      - 进度: 'resources/server/advancements.md'
+      - 条件性加载数据: 'resources/server/conditional.md'
+  - 数据生成:
+    - 概述: 'datagen/index.md'
+    - 客户端资源:
+      - 模型提供者: 'datagen/client/modelproviders.md'
+      - 语言提供者: 'datagen/client/localization.md'
+      - 音效提供者: 'datagen/client/sounds.md'
+    - 服务端数据:
+      - 合成表提供者: 'datagen/server/recipes.md'
+      - 战利品表提供者: 'datagen/server/loottables.md'
+      - 标签提供者: 'datagen/server/tags.md'
+      - 进度提供者: 'datagen/server/advancements.md'
+      - 全局战利品修改器提供者: 'datagen/server/glm.md'
+      - 数据包注册表对象提供者: 'datagen/server/datapackregistries.md'
+  - 杂项功能:
+    - 配置: 'misc/config.md'
+    - 键盘布局: 'misc/keymappings.md'
+    - 游戏测试: 'misc/gametest.md'
+    - Forge更新检查器: 'misc/updatechecker.md'
+    - 调试分析器: 'misc/debugprofiler.md'
+  - 进阶主题:
+    - 访问修改器: 'advanced/accesstransformers.md'
+  - 向Forge做出贡献:
+    - 概述: 'forgedev/index.md'
+    - Pull Request准则: 'forgedev/prguidelines.md'
+  - 旧版本:
+    - 概述: 'legacy/index.md'
+    - 移植到当前版本: 'legacy/porting.md'
 
 # Do not edit in PRs below here
 site_name: MinecraftForge文档 中文翻译
