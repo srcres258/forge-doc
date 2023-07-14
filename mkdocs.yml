@@ -1,14 +1,14 @@
 # If you add a page, you must add it to the index here
 nav:
-  - Home: 'index.md'
-  - Contributing to the Docs: 'contributing.md'
-  - Getting Started:
-    - Introduction: 'gettingstarted/index.md'
-  - Configurations:
-    - Introduction: 'configuration/index.md'
-    - Run Configs: 'configuration/runs.md'
-  - Dependencies:
-    - Introduction: 'dependencies/index.md'
+  - 主页: 'index.md'
+  - 向这篇文档做出贡献: 'contributing.md'
+  - 入门:
+    - 概述: 'gettingstarted/index.md'
+  - 配置选项:
+    - 概述: 'configuration/index.md'
+    - 运行配置: 'configuration/runs.md'
+  - 依赖:
+    - 概述: 'dependencies/index.md'
     - Jar-in-Jar: 'dependencies/jarinjar.md'
 
 # Do not edit in PRs below here
