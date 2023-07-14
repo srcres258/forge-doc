@@ -9,7 +9,7 @@ nav:
     - 版本号: 'gettingstarted/versioning.md'
   - 核心概念:
     - 注册表: 'concepts/registries.md'
-    - Sides: 'concepts/sides.md'
+    - 端位（Sides）: 'concepts/sides.md'
     - 事件: 'concepts/events.md'
     - 模组生命周期: 'concepts/lifecycle.md'
     - 资源: 'concepts/resources.md'
