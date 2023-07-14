@@ -12,7 +12,7 @@ nav:
     - Jar-in-Jar: 'dependencies/jarinjar.md'
 
 # Do not edit in PRs below here
-site_name: Forge Documentation
+site_name: ForgeGradle文档 中文翻译
 site_url: https://docs.minecraftforge.net/en/fg-5.x
 
 markdown_extensions:
