@@ -77,7 +77,7 @@ public static void handlePacket(MyClientMessage msg, Supplier<NetworkEvent.Conte
 }
 ```
 
-Note the presence of `#setPacketHandled`, which is used to tell the network system that the packet has successfully completed handling.
+请注意`#setPacketHandled`的存在，它用于告诉网络系统该数据包已成功完成处理。
 
 
 !!! 警告
