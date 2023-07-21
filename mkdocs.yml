@@ -35,8 +35,8 @@ nav:
     - Saved Data: 'datastorage/saveddata.md'
     - Codecs: 'datastorage/codecs.md'
   - 图形用户界面:
-    - Menus: 'gui/menus.md'
-    - Screens: 'gui/screens.md'
+    - 菜单（Menus）: 'gui/menus.md'
+    - 屏幕（Screens）: 'gui/screens.md'
   - 渲染:
     - 模型扩展:
       - 概述: 'rendering/modelextensions/index.md'
