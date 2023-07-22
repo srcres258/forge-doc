@@ -26,11 +26,11 @@ public MyMenu(int containerId, Inventory playerInv) {
 !!! 注意
     容器id对于单个玩家是唯一的。这意味着，两个不同玩家上的相同容器id将代表两个不同的菜单，即使他们正在查看相同的数据持有者。
 
-`MenuSupplier`通常负责在客户端上创建一个菜单，其中包含用于存储来自服务器数据持有者的同步信息并与之交互的伪数据引用。
+`MenuSupplier`通常负责在客户端上创建一个菜单，其中包含用于存储来自服务端数据持有者的同步信息并与之交互的伪数据引用。
 
 ### `IContainerFactory`
 
-如果需要有关客户端的其他信息（例如数据持有者在世界中的位置），则可以使用子类`IContainerFactory`。除了容器id和玩家物品栏之外，这还提供了一个`FriendlyByteBuf`，它可以存储从服务器发送的附加信息。`MenuType`可以通过`IForgeMenuType#create`使用`IContainerFactory`创建。
+如果需要有关客户端的其他信息（例如数据持有者在世界中的位置），则可以使用子类`IContainerFactory`。除了容器id和玩家物品栏之外，这还提供了一个`FriendlyByteBuf`，它可以存储从服务端发送的附加信息。`MenuType`可以通过`IForgeMenuType#create`使用`IContainerFactory`创建。
 
 ```java
 // 对于某个类型为DeferredRegister<MenuType<?>>的REGISTER
@@ -51,7 +51,7 @@ public MyMenuExtra(int containerId, Inventory playerInv, FriendlyByteBuf extraDa
 !!! 重要
     玩家一次只能打开100个唯一的菜单。
 
-每个菜单应该包含两个构造函数：一个用于初始化服务器上的菜单，另一个用于启动客户端上的菜单。用于初始化客户端菜单的构造函数是提供给`MenuType`的构造函数。服务器菜单构造函数包含的任何字段都应该具有客户端菜单构造函数的一些默认值。
+每个菜单应该包含两个构造函数：一个用于初始化服务端上的菜单，另一个用于启动客户端上的菜单。用于初始化客户端菜单的构造函数是提供给`MenuType`的构造函数。服务端菜单构造函数包含的任何字段都应该具有客户端菜单构造函数的一些默认值。
 
 ```java
 // 客户端菜单构造函数
@@ -59,7 +59,7 @@ public MyMenu(int containerId, Inventory playerInventory) {
   this(containerId, playerInventory);
 }
 
-// 服务器菜单构造函数
+// 服务端菜单构造函数
 public MyMenu(int containerId, Inventory playerInventory) {
   // ...
 }
@@ -71,7 +71,7 @@ public MyMenu(int containerId, Inventory playerInventory) {
 
 `#stillValid`确定菜单是否应该为给定的玩家保持打开状态。这通常指向静态的`#stillValid`，它接受一个`ContainerLevelAccess`、该玩家和该菜单所附的`Block`。客户端菜单必须始终为该方法返回`true`，而静态的`#stillValid`默认为该方法。该实现检查玩家是否在数据存储对象所在的八个方块内。
 
-`ContainerLevelAccess`提供封闭范围内方块的当前存档和位置。在服务器上构建菜单时，可以通过调用`ContainerLevelAccess#create`创建新的访问。客户端菜单构造函数可以传入`ContainerLevelAccess#NULL`，这将不起任何作用。
+`ContainerLevelAccess`提供封闭范围内方块的当前存档和位置。在服务端上构建菜单时，可以通过调用`ContainerLevelAccess#create`创建新的访问。客户端菜单构造函数可以传入`ContainerLevelAccess#NULL`，这将不起任何作用。
 
 ```java
 // 客户端菜单构造函数
@@ -79,7 +79,7 @@ public MyMenuAccess(int containerId, Inventory playerInventory) {
   this(containerId, playerInventory, ContainerLevelAccess.NULL);
 }
 
-// 服务器菜单构造函数
+// 服务端菜单构造函数
 public MyMenuAccess(int containerId, Inventory playerInventory, ContainerLevelAccess access) {
   // ...
 }
@@ -93,7 +93,7 @@ public boolean stillValid(Player player) {
 
 ### 数据的同步
 
-一些数据需要同时出现在服务器和客户端上才能显示给玩家。为此，菜单实现了数据同步的基本层，以便在当前数据与上次同步到客户端的数据不匹配时进行同步。对于玩家来说，这是每个tick都会检查的。
+一些数据需要同时出现在服务端和客户端上才能显示给玩家。为此，菜单实现了数据同步的基本层，以便在当前数据与上次同步到客户端的数据不匹配时进行同步。对于玩家来说，这是每个tick都会检查的。
 
 Minecraft默认支持两种形式的数据同步：通过`Slot`进行的`ItemStack`同步和通过`DataSlot`进行的整数同步。`Slot`和`DataSlot`是保存对数据存储的引用的视图，假设操作有效，玩家可以在屏幕中修改这些数据存储。这些可以通过`#addSlot`和`#addDataSlot`在菜单的构造函数中添加。
 
@@ -113,14 +113,14 @@ Minecraft默认支持两种形式的数据同步：通过`Slot`进行的`ItemSta
 
 ```java
 // 假设我们有一个来自大小为5的数据对象的物品栏
-// 假设我们在每次初始化服务器菜单时都构造了一个DataSlot
+// 假设我们在每次初始化服务端菜单时都构造了一个DataSlot
 
 // 客户端菜单构造函数
 public MyMenuAccess(int containerId, Inventory playerInventory) {
   this(containerId, playerInventory, new ItemStackHandler(5), DataSlot.standalone());
 }
 
-// 服务器菜单构造函数
+// 服务端菜单构造函数
 public MyMenuAccess(int containerId, Inventory playerInventory, IItemHandler dataInventory, DataSlot dataSingle) {
   // 检查数据物品栏大小是否为某个固定值
   // 然后，为数据物品栏添加Slot
@@ -148,7 +148,7 @@ public MyMenuAccess(int containerId, Inventory playerInventory) {
   this(containerId, playerInventory, new SimpleContainerData(3));
 }
 
-// 服务器菜单构造函数
+// 服务端菜单构造函数
 public MyMenuAccess(int containerId, Inventory playerInventory, ContainerData dataMultiple) {
   // 检查ContainerData大小是否为某个固定值
   checkContainerDataCount(dataMultiple, 3);
@@ -259,16 +259,16 @@ public ItemStack quickMoveStack(Player player, int quickMovedSlotIndex) {
 
 ## 打开菜单
 
-一旦注册了菜单类型，菜单本身已经完成，并且一个[屏幕（Screen）][screen]已被附加，玩家就可以打开菜单。可以通过在逻辑服务器上调用`NetworkHooks#openScreen`来打开菜单。该方法让玩家打开菜单，服务器端菜单的`MenuProvider`，如果需要将额外数据同步到客户端，还可以选择`FriendlyByteBuf`。
+一旦注册了菜单类型，菜单本身已经完成，并且一个[屏幕（Screen）][screen]已被附加，玩家就可以打开菜单。可以通过在逻辑服务端上调用`NetworkHooks#openScreen`来打开菜单。该方法让玩家打开菜单，服务端端菜单的`MenuProvider`，如果需要将额外数据同步到客户端，还可以选择`FriendlyByteBuf`。
 
 !!! 注意
     只有在使用[`IContainerFactory`][icf]创建菜单类型时，才应使用带有`FriendlyByteBuf`参数的`NetworkHooks#openScreen`。
 
 #### `MenuProvider`
 
-`MenuProvider`是一个包含两个方法的接口：`#createMenu`和`#getDisplayName`，前者创建菜单的服务器实例，后者返回一个包含要传递到[屏幕（Screen）][screen]的菜单标题的组件。`#createMenu`方法包含三个参数：菜单的容器id、打开菜单的玩家的物品栏以及打开菜单的玩家。
+`MenuProvider`是一个包含两个方法的接口：`#createMenu`和`#getDisplayName`，前者创建菜单的服务端实例，后者返回一个包含要传递到[屏幕（Screen）][screen]的菜单标题的组件。`#createMenu`方法包含三个参数：菜单的容器id、打开菜单的玩家的物品栏以及打开菜单的玩家。
 
-使用`SimpleMenuProvider`可以很容易地创建`MenuProvider`，它采用方法引用来创建服务器菜单和菜单标题。
+使用`SimpleMenuProvider`可以很容易地创建`MenuProvider`，它采用方法引用来创建服务端菜单和菜单标题。
 
 ```java
 // 在某种实现中
@@ -305,7 +305,7 @@ public InteractionResult use(BlockState state, Level level, BlockPos pos, Player
 ```
 
 !!! 注意
-    这是实现逻辑的最简单的方法，而不是唯一的方法。如果您希望方块仅在特定条件下打开菜单，则需要提前将一些数据同步到客户端，以便在不满足条件的情况下返回`InteractionResult#PASS`或`#FAIL`。
+    这是实现逻辑的最简单的方法，而不是唯一的方法。如果你希望方块仅在特定条件下打开菜单，则需要提前将一些数据同步到客户端，以便在不满足条件的情况下返回`InteractionResult#PASS`或`#FAIL`。
 
 #### 生物的实现
 
