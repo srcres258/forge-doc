@@ -33,7 +33,7 @@ nav:
   - 数据储存:
     - Capabilities: 'datastorage/capabilities.md'
     - Saved Data: 'datastorage/saveddata.md'
-    - Codecs: 'datastorage/codecs.md'
+    - 编解码器（Codecs）: 'datastorage/codecs.md'
   - 图形用户界面:
     - 菜单（Menus）: 'gui/menus.md'
     - 屏幕（Screens）: 'gui/screens.md'
