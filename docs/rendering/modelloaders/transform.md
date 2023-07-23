@@ -25,7 +25,7 @@
 
 Forge废弃了使用处理转换的整个原版系统，`BakedModel`的大多数实现应该简单地从`BakedModel#getTransforms`中`return ItemTransforms#NO_TRANSFORMS`（这是默认实现）。相反，他们应该实现`#applyTransform`。
 
-Forge的方法
+Forge的方式
 -----------
 
 Forge处理转换的方法是`#applyTransform`，这是一种修补到`BakedModel`中的方法。它取代了`#getTransforms`方法。
