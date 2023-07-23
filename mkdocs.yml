@@ -43,7 +43,7 @@ nav:
       - 根变换: 'rendering/modelextensions/transforms.md'
       - 渲染类型: 'rendering/modelextensions/rendertypes.md'
       - 部分可见度: 'rendering/modelextensions/visibility.md'
-      - 脸部数据: 'rendering/modelextensions/facedata.md'
+      - 面数据: 'rendering/modelextensions/facedata.md'
     - 模型加载器:
       - 概述: 'rendering/modelloaders/index.md'
       - 烘焙模型: 'rendering/modelloaders/bakedmodel.md'
