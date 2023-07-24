@@ -240,7 +240,7 @@ public MyContainerScreen(MyMenu menu, Inventory playerInventory, Component title
 
 ### 容器的计时
 
-当玩家活着并通过`#containerTick`查看屏幕时，容器屏幕在`#tick`方法中计时。这基本上取代了容器屏幕中的`#tick`，其最常见的用法是在合成表书中计时。
+当玩家活着并通过`#containerTick`查看屏幕时，容器屏幕在`#tick`方法中计时。这基本上取代了容器屏幕中的`#tick`，其最常见的用法是在配方书中计时。
 
 ```java
 // 在某个AbstractContainerScreen子类中

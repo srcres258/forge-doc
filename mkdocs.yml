@@ -58,11 +58,11 @@ nav:
         - 物品属性: 'resources/client/models/itemproperties.md'
     - 服务端数据:
       - 概述: 'resources/server/index.md'
-      - 合成表:
+      - 配方:
         - 概述: 'resources/server/recipes/index.md'
-        - 自定义合成表: 'resources/server/recipes/custom.md'
-        - 配方: 'resources/server/recipes/ingredients.md'
-        - 非数据包合成表:  'resources/server/recipes/incode.md'
+        - 自定义配方: 'resources/server/recipes/custom.md'
+        - 原料: 'resources/server/recipes/ingredients.md'
+        - 非数据包配方:  'resources/server/recipes/incode.md'
       - 战利品表: 'resources/server/loottables.md'
       - 全局战利品修改器: 'resources/server/glm.md'
       - 标签: 'resources/server/tags.md'
@@ -75,7 +75,7 @@ nav:
       - 语言提供者: 'datagen/client/localization.md'
       - 音效提供者: 'datagen/client/sounds.md'
     - 服务端数据:
-      - 合成表提供者: 'datagen/server/recipes.md'
+      - 配方提供者: 'datagen/server/recipes.md'
       - 战利品表提供者: 'datagen/server/loottables.md'
       - 标签提供者: 'datagen/server/tags.md'
       - 进度提供者: 'datagen/server/advancements.md'
