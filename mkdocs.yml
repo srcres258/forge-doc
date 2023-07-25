@@ -50,7 +50,7 @@ nav:
       - 变换: 'rendering/modelloaders/transform.md'
       - 物品重载: 'rendering/modelloaders/itemoverrides.md'
   - 资源:
-    - 客户端资源（Asset）:
+    - 客户端资源（Assets）:
       - 概述: 'resources/client/index.md'
       - 模型:
         - 概述: 'resources/client/models/index.md'
@@ -70,7 +70,7 @@ nav:
       - 条件性加载数据: 'resources/server/conditional.md'
   - 数据生成:
     - 概述: 'datagen/index.md'
-    - 客户端资源（Asset）:
+    - 客户端资源（Assets）:
       - 模型提供者: 'datagen/client/modelproviders.md'
       - 语言提供者: 'datagen/client/localization.md'
       - 音效提供者: 'datagen/client/sounds.md'
