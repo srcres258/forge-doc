@@ -50,13 +50,13 @@ nav:
       - 变换: 'rendering/modelloaders/transform.md'
       - 物品重载: 'rendering/modelloaders/itemoverrides.md'
   - 资源:
-    - 客户端资源:
+    - 客户端资源（Asset）:
       - 概述: 'resources/client/index.md'
       - 模型:
         - 概述: 'resources/client/models/index.md'
         - 纹理色调: 'resources/client/models/tinting.md'
         - 物品属性: 'resources/client/models/itemproperties.md'
-    - 服务端数据:
+    - 服务端数据（Data）:
       - 概述: 'resources/server/index.md'
       - 配方:
         - 概述: 'resources/server/recipes/index.md'
@@ -70,11 +70,11 @@ nav:
       - 条件性加载数据: 'resources/server/conditional.md'
   - 数据生成:
     - 概述: 'datagen/index.md'
-    - 客户端资源:
+    - 客户端资源（Asset）:
       - 模型提供者: 'datagen/client/modelproviders.md'
       - 语言提供者: 'datagen/client/localization.md'
       - 音效提供者: 'datagen/client/sounds.md'
-    - 服务端数据:
+    - 服务端数据（Data）:
       - 配方提供者: 'datagen/server/recipes.md'
       - 战利品表提供者: 'datagen/server/loottables.md'
       - 标签提供者: 'datagen/server/tags.md'
