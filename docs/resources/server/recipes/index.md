@@ -57,7 +57,7 @@ Forge为配方纲要及其实现提供了一些额外的行为，以更好地控
 
 ### 配方的ItemStack结果
 
-除了`minecraft:stonecutting`配方外，所有原版配方序列化程序都会扩展`result`标签，以将完整的`ItemStack`作为`JsonObject`，而不是在某些情况下仅仅是物品名称和数量。
+除了`minecraft:stonecutting`配方外，所有原版配方序列化器都会扩展`result`标签，以将完整的`ItemStack`作为`JsonObject`，而不是在某些情况下仅仅是物品名称和数量。
 
 ```js
 // 在某个配方JSON中
