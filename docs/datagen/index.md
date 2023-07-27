@@ -24,7 +24,7 @@ MDK的`build.gradle`中的默认配置添加了用于运行数据生成器的`ru
   * 在`assets`中生成仅客户端文件：f方块/物品模型、方块状态JSON、语言文件等。
   * __`--client`__, `#includeClient`
 * __Server Data__
-  * 在`data`中生成仅服务器文件：配方、进度、标签等。
+  * 在`data`中生成仅服务端文件：配方、进度、标签等。
   * __`--server`__, `#includeServer`
 * __Development Tools__
   * 运行一些开发工具：将SNBT转换为NBT，反之亦然，等等。
