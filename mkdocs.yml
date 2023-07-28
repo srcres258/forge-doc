@@ -88,7 +88,7 @@ nav:
     - Forge更新检查器: 'misc/updatechecker.md'
     - 调试分析器: 'misc/debugprofiler.md'
   - 进阶主题:
-    - 访问修改器: 'advanced/accesstransformers.md'
+    - 访问转换器: 'advanced/accesstransformers.md'
   - 向Forge做出贡献:
     - 概述: 'forgedev/index.md'
     - Pull Request准则: 'forgedev/prguidelines.md'
