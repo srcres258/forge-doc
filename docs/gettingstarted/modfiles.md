@@ -56,7 +56,7 @@ showAsResourcePack=false
 属性                 | 类型    | 缺省值         | 描述        | 样例
 :---                 | :---:   | :---:         | :---:       | :---
 `modLoader`          | string  | **必需** | 模组所使用的语言加载器。可用于支持额外的语言结构，如为主文件定义的Kotlin对象，或确定入口点的不同方法，如接口或方法。Forge提供Java加载器`"javafml"`和低/无代码加载器`"lowcodefml"`。 | `"javafml"`
-`loaderVersion`      | string  | **必需** | 可接受的语言加载器版本范围，以[Maven版本范围][mvr]表示。对于`javafml`和`lowcodefml`，其版本是Forge版本的主版本号。 | `"[45,)"`
+`loaderVersion`      | string  | **必需** | 可接受的语言加载器版本范围，以[Maven版本范围][mvr]表示。对于`javafml`和`lowcodefml`，其版本是Forge版本的主版本号。 | `"[46,)"`
 `license`            | string  | **必需** | 该JAR文件中的模组所遵循的许可证。建议将其设置为你正在使用的[SPDX标识符][spdx]和/或许可证的链接。你可以访问 https://choosealicense.com/ 以帮助选取你想使用的许可证。 | `"MIT"`
 `showAsResourcePack` | boolean | `false`       | 当为`true`时，模组的资源会以一个单独的资源包的形式在“资源包”菜单中展示，而不是与“模组资源”包融为一体。 | `true`
 `services`           | array   | `[]`          | 表示你的模组所**使用**的一系列服务的数组。这是从Forge的Java平台模块系统实现中为模组创建的模块的一部分。 | `["net.minecraftforge.forgespi.language.IModLanguageProvider"]`
@@ -84,7 +84,7 @@ modId = "examplemod2"
 :---            | :---:   | :---:                   | :---:       | :---
 `modId`         | string  | **必需**                | 代表这个模组的唯一标识符。该标识符必须匹配`^[a-z][a-z0-9_]{1,63}$`（一个长度在[2,64]闭区间内的字符串；以小写字母开头；由小写字母、数字或下划线组成）。 | `"examplemod"`
 `namespace`     | string  | `modId`的值             | 该模组的一个重载命名空间。该命名空间必须匹配`^[a-z][a-z0-9_.-]{1,63}$`（一个长度在[2,64]闭区间内的字符串；以小写字母开头；由小写字母、数字、下划线、点或短横线组成）。目前无作用。 | `"example"`
-`version`       | string  | `"1"`                   | 该模组的版本，最好符合[Maven版本号命名格式][mvnver]。当设置为`${file.jarVersion}`时，它将被替换为JAR清单文件中`Implementation-Version`属性的值（在开发环境下默认显示为`0.0NONE`）。 | `"1.19.4-1.0.0.0"`
+`version`       | string  | `"1"`                   | 该模组的版本，最好符合[Maven版本号命名格式][mvnver]。当设置为`${file.jarVersion}`时，它将被替换为JAR清单文件中`Implementation-Version`属性的值（在开发环境下默认显示为`0.0NONE`）。 | `"1.20-1.0.0.0"`
 `displayName`   | string  | `modId`的值             | 该模组的更具可读性的名字。用于将模组展示到屏幕上时（如模组列表、模组不匹配）。 | `"Example Mod"`
 `description`   | string  | `"MISSING DESCRIPTION"` | 在模组列表中展示的该模组的描述。建议使用一个[多行文字字符串][multiline]。 | `"This is an example."`
 `logoFile`      | string  | *无*                    | 在模组列表中展示的该模组的logo图像文件的名称和扩展名。该logo必须位于JAR文件的根目录或直接位于源码集的根目录。 | `"example_logo.png"`

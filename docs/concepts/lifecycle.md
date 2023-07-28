@@ -30,9 +30,11 @@ public class MyMod {
 注册表事件
 ---------
 
-注册表事件是在模组实例构造之后激发的。注册表事件有两种：`NewRegistryEvent`和`RegisterEvent`。这些事件在模组加载期间同步触发。
+注册表事件是在模组实例构造之后激发的。注册表事件有三种：`NewRegistryEvent`、`DataPackRegistryEvent$NewRegistry`和`RegisterEvent`。这些事件在模组加载期间同步触发。
 
 `NewRegistryEvent`允许模组开发者使用`RegistryBuilder`类注册自己的自定义注册表。
+
+`DataPackRegistryEvent$NewRegistry`允许模组开发者通过提供`Codec`对JSON中的对象进行编码和解码来注册自定义数据包注册表。
 
 `RegisterEvent`用于[将对象注册到注册表中][registering]。每个注册表都会触发该事件。
 

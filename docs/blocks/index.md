@@ -18,7 +18,7 @@
 所有这些方法都是*可链接*的，这意味着你可以串联地调用它们。有关此方面的示例，请参见`Blocks`类。
 
 !!! 注意
-    `CreativeModeTab`未针对方块定义setter。如果方块有与之关联的物品（例如`BlockItem`），则现在由[`CreativeModeTabEvent$BuildContents`][creativetabs]处理。此外，也没有针对翻译键的setter，因为它现在是从注册表名称生成的。
+    `CreativeModeTab`未针对方块定义setter。如果方块有与之关联的物品（例如`BlockItem`），则由[`BuildCreativeModeTabContentsEvent`][creativetabs]处理。此外，也没有针对翻译键的setter，因为它是通过`Block#getDescriptionId`从注册表名称生成的。
 
 ### 进阶方块
 
@@ -36,7 +36,7 @@
 
 #### 选择性地注册方块
 
-在过去，有一些模组允许用户在配置文件中禁用方块/物品。但是，你不应该这样做。允许注册的方块数量没有限制，所以请在你的模组中注册所有方块！如果你想通过配置文件禁用一个方块，你应该禁用其配方。如果要禁用创造模式物品栏中的方块，请在[`CreativeModeTabEvent$BuildContents`][creativetabs]中构建内容时使用`FeatureFlag`。
+在过去，有一些模组允许用户在配置文件中禁用方块/物品。但是，你不应该这样做。允许注册的方块数量没有限制，所以请在你的模组中注册所有方块！如果你想通过配置文件禁用一个方块，你应该禁用其配方。如果要禁用创造模式物品栏中的方块，请在[`BuildCreativeModeTabContentsEvent`][creativetabs]中构建内容时使用`FeatureFlag`。
 
 延伸阅读
 -------

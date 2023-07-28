@@ -11,13 +11,13 @@
 使用战利品表
 -----------
 
-战利品表由其指向`data/<namespace>/loot_tables/<path>.json`的`ResourceLocation`引用。与引用相关联的`LootTable`可以使用`LootTables#get`获得，其中`LootTables`可以通过`MinecraftServer#getLootTables`获得。
+战利品表由其指向`data/<namespace>/loot_tables/<path>.json`的`ResourceLocation`引用。与引用相关联的`LootTable`可以使用`LootDataResolver#getLootTable`获得，其中`LootDataResolver`可以通过`MinecraftServer#getLootData`获得。
 
-战利品表总是在给定的上下文中生成的。`LootContext`定义了表的生成存档、特定的随机化器和种子（如果需要）、更好生成的运气、定义场景上下文的`LootContextParam`以及激活时应出现的任何动态信息。可以使用`LootContext$Builder`的构造函数创建战利品上下文，并使用`LootContext$Builder#create`构建战利品上下文。
+战利品表总是使用给定的参数生成的。`LootParams`包含表的生成存档、特定的随机化器和种子（如果需要）、更好生成的运气、定义场景上下文的`LootContextParam`以及激活时应出现的任何动态信息。可以使用`LootParams$Builder`生成器的构造函数创建`LootParams`，并通过传递`LootContextParamSet`通过`LootParams$Builder#create`构建`LootParams`。
 
-创建的`LootContext`遵循某些`LootContextParamSet`。参数集定义在上下文中哪些`LootContextParam`是必需的或可选的，以便生成。在给定参数集中生成的战利品表必须仅使用已定义的上下文。
+战利品表也可能有一些上下文。`LootContext`接受已构建的`LootParams`，并可以设置一些随机种子实例。上下文是通过生成器`LootContext$Builder`创建的，并使用`LootContext$Builder#create`通过传递表示要使用的随机实例的可为null的`ResourceLocation`来构建。
 
-`LootTable`可用于使用以下可用方法之一生成`ItemStack`：
+`LootTable`可用于使用以下可用方法之一生成`ItemStack`，其可能接受一个`LootParams`或一个`LootContext`：
 
 方法                | 描述
 :---:               | :---

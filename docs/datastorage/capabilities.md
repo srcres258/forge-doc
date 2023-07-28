@@ -170,24 +170,6 @@ public class MyBlockEntity extends BlockEntity {
 
 这可以通过`PlayerEvent$Clone`完成，方法是从原始实体读取数据并将其分配给新实体。在这种情况下，`#isWasDeath`方法可以用于区分死后重生和从末地返回。这一点很重要，因为从末地返回时数据已经存在，因此在这种情况下必须注意不要重复值。
 
-从IExtendedEntityProperty迁移
--------------------------------
-
-尽管Capability系统可以完成IEEP（IExtendedEntityProperty）所做的一切，甚至更多，但这两个概念并不完全匹配。本节将解释如何将现有IEEP转换为Capability。
-
-这是IEEP概念及其等效Capability概念的快速列表：
-
-* 属性名称/id (`String`)：Capability 键 (`ResourceLocation`)
-* 注册 (`EntityConstructing`)：附加 (`AttachCapabilitiesEvent<Entity>`)，`Capability`的真正的注册发生于`FMLCommonSetupEvent`期间。
-* 标签读/写方法：不会自动发生。在该事件中附加一个`ICapabilitySerializable`并运行`serializeNBT`/`deserializeNBT`作为读/写方法。
-
-快速转换指南：
-
-1. 将IEEP键/id字符串转换为`ResourceLocation`（其将使用你的MODID作为命名空间）。
-2. 在你的处理器类中（不是实现你的Capability接口的类），创建一个容纳Capability实例的字段。
-3. 将`EntityConstructing`事件转换为`AttachCapabilitiesEvent`，且与查询IEEP不同，你将想要附加一个`ICapabilityProvider`（可能为`ICapabilitySerializable`，其允许保存到一个标签/从一个标签加载）。
-4. 创建一个注册方法，如果你没有的话（你可能在注册你的IEEP事件处理器的地方有一个）并在该方法中运行Capability注册函数。
-
 [expose]: #exposing-a-capability
 [handled]: ../concepts/events.md#creating-an-event-handler
 [network]: ../networking/index.md

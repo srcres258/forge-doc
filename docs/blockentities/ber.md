@@ -16,7 +16,7 @@ BlockEntityRenderer
 
 #### 参数
 * `blockEntity`: 这是正在渲染的方块实体的实例。
-* `partialTicks`: 在帧的摩擦过程中，从上一次完整刻度开始经过的时间量。
+* `partialTick`: 在帧的摩擦过程中，从上一次完整刻度开始经过的时间量。
 * `poseStack`: 一个栈，包含偏移到方块实体当前位置的四维矩阵条目。
 * `bufferSource`: 能够访问顶点Consumer的渲染缓冲区。
 * `combinedLight`: 方块实体上当前亮度值的整数。

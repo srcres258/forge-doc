@@ -24,17 +24,17 @@
 
 如上所述设置物品属性的方式仅适用于简单物品。如果你想要更复杂的物品，你应该继承`Item`类并重写其方法。
 
-## Creative Tabs
+## 创造模式物品栏
 
-可以通过[模组事件总线][modbus]上的`CreativeModeTabEvent$BuildContents`将物品添加到`CreativeModeTab`。可以通过`#accept`添加物品，而无需任何其他配置。
+可以通过[模组事件总线][modbus]上的`BuildCreativeModeTabContentsEvent`将物品添加到`CreativeModeTab`。可以通过`#accept`添加物品，而无需任何其他配置。
 
 ```java
 // 已在模组事件总线上注册
 // 假设我们有一个名为ITEM的RegistryObject<Item>和一个名为BLOCK的RegistryObject<Block>
 @SubscribeEvent
-public void buildContents(CreativeModeTabEvent.BuildContents event) {
+public void buildContents(BuildCreativeModeTabContentsEvent event) {
   // 添加到ingredients创造模式物品栏
-  if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
+  if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
     event.accept(ITEM);
     event.accept(BLOCK); // 接受一个ItemLike，假设方块已注册其物品
   }
@@ -45,25 +45,23 @@ public void buildContents(CreativeModeTabEvent.BuildContents event) {
 
 ### 自定义创造模式物品栏
 
-可以通过[模组事件总线][modbus]上的`CreativeModeTabEvent$Register#registerCreativeModeTab`创建自定义的`CreativeModeTab`。这需要使用物品栏页的名称和一个构建器的Consumer。此外，还可以提供`ResourceLocation`或`CreativeModeTab`的列表，以确定物品栏页的位置。
+自定义`CreativeModeTab`必须[已被注册][registering]。生成器可以通过`CreativeModeTab#builder`创建。选项卡可以设置标题、图标、默认物品和许多其他属性。此外，Forge还提供了额外的方法来定制标签的图像、标签和插槽颜色，以及选项卡的排序位置等。
 
 ```java
-// 已在模组事件总线上注册
+// 假设我们有一个名为REGISTRAR的DeferredRegister<CreativeModeTab>
 // 假设我们有一个名为ITEM的RegistryObject<Item>和一个名为BLOCK的RegistryObject<Block>
-@SubscribeEvent
-public void buildContents(CreativeModeTabEvent.Register event) {
-  event.registerCreativeModeTab(new ResourceLocation(MOD_ID, "example"), builder ->
-    // 设置所要展示的页的名称
-    builder.title(Component.translatable("item_group." + MOD_ID + ".example"))
-    // 设置页图标
-    .icon(() -> new ItemStack(ITEM.get()))
-    // 为物品栏页添加默认物品
-    .displayItems((params, output) -> {
-      output.accept(ITEM.get());
-      output.accept(BLOCK.get());
-    })
-  );
-}
+public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = REGISTRAR.register("example", () -> CreativeModeTab.builder()
+  // 设置所要展示的页的名称
+  .title(Component.translatable("item_group." + MOD_ID + ".example"))
+  // 设置页图标
+  .icon(() -> new ItemStack(ITEM.get()))
+  // 为物品栏页添加默认物品
+  .displayItems((params, output) -> {
+    output.accept(ITEM.get());
+    output.accept(BLOCK.get());
+  })
+  .build()
+);
 ```
 
 注册一个物品

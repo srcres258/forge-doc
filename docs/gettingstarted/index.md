@@ -60,16 +60,6 @@ Forge入门
 base.archivesName = 'mymod'
 ```
 
-!!! 注意
-    Forge MDK目前使用`archivesBaseName`来设置artifact名称，而不是`base.archivesName`。我们建议使用`base.archivesName`作为替代，因为`archivesBaseName`由于在Gradle 9中被移除而被废弃，而ForgeGradle的未来版本将支持此功能。
-
-    你仍然可以通过以下设置使用`archivesBaseName`：
-
-    ```gradle
-    // 在某个build.gradle文件中
-    base.archivesName = 'mymod'
-    ```
-
 #### Group Id
 
 `group`属性应该设置为你的顶级程序包，其应为你拥有的域名或你的电子邮件地址：

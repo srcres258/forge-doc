@@ -247,19 +247,6 @@ property 'forge.enabledGameTestNamespaces', 'modid1,modid2,modid3'
 
 游戏测试服务端是一种运行构建服务端的特殊配置。构建服务端返回所需的失败游戏测试数的退出代码。所有失败的测试都被记录到日志，无论是必需的还是可选的。此服务端可以使用`gradlew runGameTestServer`运行。
 
-!!! 重要
-    由于Gradle工作方式的特殊性，默认情况下，如果任务强制退出系统，Gradle守护进程将被终止，导致Gradle运行器报告构建失败。ForgeGradle在默认情况下对运行任务设置强制退出，这样任何子项目都不会按顺序执行。然而，因此，游戏测试服务端总是会失败。
-
-    这可以通过使用`#setForceExit`方法禁用运行配置上的强制退出来解决：
-
-    ```gradle
-    // 游戏测试服务端运行配置
-    gameTestServer {
-        // ...
-        setForceExit false
-    }
-    ```
-
 ### 在其他运行配置中启用游戏测试
 
 默认情况下，只有`client`、`server`和`gameTestServer`运行配置启用了游戏测试。如果另一个运行配置应该运行游戏测试，则`forge.enableGameTest`属性必须设置为`true`。

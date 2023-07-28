@@ -155,6 +155,13 @@ class Holder {
 
 使用`NewRegistryEvent`时，用`RegistryBuilder`调用`#create`将返回一个用Supplier包装的注册表。`NewRegistryEvent`在模组事件总线处理完毕后，这个Supplier注册表就可以访问了。在`NewRegistryEvent`被处理完毕之前试图从Supplier获取该自定义注册表将得到`null`值。
 
+#### 新的数据包注册表
+
+可以使用模组事件总线上的`DataPackRegistryEvent$NewRegistry`事件添加新的数据包注册表。注册表是通过`#dataPackRegistry`创建的，方法是传入表示注册表名称的`ResourceKey`和用于对JSON中的数据进行编码和解码的`Codec`。可以提供可选的`Codec`来将数据包注册表同步到客户端。
+
+!!! 重要
+    数据包注册表不能用`DeferredRegister`创建。它们只能通过这个事件创建。
+
 ### 使用DeferredRegister
 
 `DeferredRegister`方法又是上述事件的另一个包装。一旦使用`#create`重载在常量字段中创建了`DeferredRegister`（该重载接受注册表名称和mod id），就可以通过`DeferredRegistry#makeRegistry`构建注册表。该方法接受了由Supplier提供的包含任何其他配置的`RegistryBuilder`。默认情况下，该方法已调用`#setName`。由于此方法可以在任何时候返回，因此会返回由Supplier提供的`IForgeRegistry`版本。在激发NewRegistryEvent之前试图从Supplier获取自定义注册表将得到`null`值。

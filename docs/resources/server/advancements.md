@@ -49,11 +49,11 @@
 
 `AbstractCriterionTriggerInstance`表示在`criteria`对象中定义的单个标准。触发器实例负责保存定义的条件，返回输入是否与条件匹配，并将实例写入JSON用于数据生成。
 
-条件通常通过构造函数传递。`AbstractCriterionTriggerInstance`父级构造函数要求实例将触发器的注册表名和玩家必须满足的条件定义为`EntityPredicate$Composite`。触发器的注册表名称应该直接提供给父级，而玩家的条件应该是构造函数参数。
+条件通常通过构造函数传递。`AbstractCriterionTriggerInstance`父级构造函数要求实例将触发器的注册表名和玩家必须满足的条件定义为`ContextAwarePredicate`。触发器的注册表名称应该直接提供给父级，而玩家的条件应该是构造函数参数。
 
 ```java
 // 其中ID是该触发器的注册表名称
-public ExampleTriggerInstance(EntityPredicate.Composite player, ItemPredicate item) {
+public ExampleTriggerInstance(ContextAwarePredicate player, ItemPredicate item) {
   super(ID, player);
   // 存储必须满足的物品条件
 }
@@ -99,7 +99,7 @@ public boolean matches(ItemStack stack) {
 
 ```java
 @Override
-public ExampleTriggerInstance createInstance(JsonObject json, EntityPredicate.Composite player, DeserializationContext context) {
+public ExampleTriggerInstance createInstance(JsonObject json, ContextAwarePredicate player, DeserializationContext context) {
   // 从JSON中读取条件：item
   return new ExampleTriggerInstance(player, item);
 }

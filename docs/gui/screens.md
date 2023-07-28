@@ -13,9 +13,9 @@
 !!! 重要
     如果选择使用固定坐标或不正确地缩放屏幕，则渲染的对象可能看起来很奇怪或错位。检查坐标是否正确相对化的一个简单方法是单击视频设置中的“Gui比例”按钮。在确定GUI渲染的比例时，此值用作显示器宽度和高度的除数。
 
-## Gui组件
+## Gui图形
 
-Minecraft渲染的任何GUI都是`GuiComponent`的一个实例。`GuiComponent`包含用于渲染最常用对象的最基本方法。这些分为三类：彩色矩形、字符串和纹理。还有一种用于呈现组件片段的附加方法（`#enableScissor` / `#disableScissor`）。所有方法都接受一个`PoseStack`，该`PoseStack`应用必要的转换来正确地渲染应该渲染组件的位置。此外，颜色采用[ARGB][argb]格式。
+Minecraft渲染的任何GUI通常都是使用`GuiGraphics`完成的。`GuiGraphics`是几乎所有渲染方法的第一个参数；它包含渲染常用对象的基本方法。它们分为五类：彩色矩形、字符串、纹理、物品和提示信息。还有一种用于呈现组件片段的附加方法（`#enableScissor`/`#disableScissor`）。`GuiGraphics`还公开了`PoseStack`，它应用了正确渲染组件所需的转换。此外，颜色采用[ARGB][argb]格式。
 
 ### 彩色矩形
 
@@ -24,7 +24,6 @@ Minecraft渲染的任何GUI都是`GuiComponent`的一个实例。`GuiComponent`�
 首先，有一条彩色的水平和垂直一像素宽的线，分别为`#hLine`和`#vLine`。`#hLine`接受两个x坐标，定义左侧和右侧（包括）、顶部y坐标和颜色。`#vLine`接受左侧的x坐标、定义顶部和底部（包括）的两个y坐标以及颜色。
 
 其次，还有`#fill`方法，它在屏幕上绘制一个矩形。Line方法在内部调用此方法。其接受左x坐标、上y坐标、右x坐标、下y坐标和颜色。
-
 
 最后，还有`#fillGradient`方法，它绘制一个具有垂直梯度的矩形。这包括右x坐标、下y坐标、左x坐标、上y坐标、z坐标以及底部和顶部的颜色。
 
@@ -48,14 +47,14 @@ Minecraft渲染的任何GUI都是`GuiComponent`的一个实例。`GuiComponent`�
 
 #### Blit偏移
 
-渲染纹理时的z坐标通常设置为blit偏移。偏移量负责在查看屏幕时对渲染进行适当分层。z坐标较小的渲染在背景中渲染，反之亦然，z坐标较大的渲染在前景中渲染。z偏移量可以通过`#translate`直接设置在`PoseStack`本身上。
+渲染纹理时的z坐标通常设置为blit偏移。偏移量负责在查看屏幕时对渲染进行适当分层。z坐标较小的渲染在背景中渲染，反之亦然，z坐标较大的渲染在前景中渲染。z偏移量可以通过`#translate`直接设置在`PoseStack`本身上。一些基本的偏移逻辑在`GuiGraphics`的某些方法（例如物品渲染）中内部应用。
 
 !!! 重要
     设置blit偏移时，必须在渲染对象后重置它。否则，屏幕内的其他对象可能会在不正确的层中渲染，从而导致图形问题。建议在平移前推动当前姿势，然后在偏移处完成所有渲染后弹出。
 
 ## Renderable
 
-`Renderable`本质上是被渲染的对象。其中包括屏幕、按钮、聊天框、列表等。`Renderable`只有一个方法：`#render`。这需要`PoseStack`保存任何先前的变换，以正确渲染可渲染的、缩放到相对屏幕大小的鼠标的x和y位置，以及游戏刻增量（自上一帧以来经过了多少游戏刻）。
+`Renderable`本质上是被渲染的对象。其中包括屏幕、按钮、聊天框、列表等。`Renderable`只有一个方法：`#render`。这需要用于将十五渲染到屏幕上的`GuiGraphics`，以正确渲染可渲染的、缩放到相对屏幕大小的鼠标的x和y位置，以及游戏刻增量（自上一帧以来经过了多少游戏刻）。
 
 一些常见的可渲染文件是屏幕和“小部件”：通常在屏幕上渲染的可交互元素，如`Button`、其子类型`ImageButton`和用于在屏幕上输入文本的`EditBox`。
 
@@ -150,21 +149,21 @@ public void tick() {
 
 背景可以使用`#renderBackground`进行渲染，其中一种方法在无法渲染屏幕后面的级别时，每当渲染屏幕时，都会将v偏移值作为选项背景。
 
-提示文本通过`#renderTooltip`或`#renderComponentTooltip`进行渲染，它们可以接受正在渲染的文本组件、可选的自定义提示文本示组件以及提示文本应在屏幕上渲染的x/y相对坐标。
+提示文本通过`GuiGraphics#renderTooltip`或`GuiGraphics#renderComponentTooltip`进行渲染，它们可以接受正在渲染的文本组件、可选的自定义提示文本示组件以及提示文本应在屏幕上渲染的x/y相对坐标。
 
 ```java
 // 在某个Screen子类中
 
 // mouseX和mouseY指示鼠标光标在屏幕上的缩放坐标
 @Override
-public void render(PoseStack pose, int mouseX, int mouseY, float partialTick) {
+public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
     // 通常首先渲染背景
-    this.renderBackground(pose);
+    this.renderBackground(graphics);
 
     // 在此处渲染在小部件之前渲染的内容（背景纹理）
 
     // 然后是窗口小部件，如果这是Screen的直接子项
-    super.render(pose, mouseX, mouseY, partialTick);
+    super.render(graphics, mouseX, mouseY, partialTick);
 
     // 在小部件之后渲染的内容（工具提示）
 }
@@ -281,13 +280,7 @@ public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTi
 private static final ResourceLocation BACKGROUND_LOCATION = new ResourceLocation(MOD_ID, "textures/gui/container/my_container_screen.png");
 
 @Override
-protected void renderBg(PoseStack pose, float partialTick, int mouseX, int mouseY) {
-    /*
-     * 设置着色器要使用的纹理位置。虽然最多可以设置12个纹理，但'blit'中
-     * 使用的着色器仅查看第一个纹理索引。
-     */
-    RenderSystem.setShaderTexture(0, BACKGROUND_LOCATION);
-
+protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
     /*
      * 将背景纹理渲染到屏幕上。'leftPos'和'topPos'应该已经表示纹理应该渲染
      * 的左上角，因为它是根据'imageWidth'和'imageHeight'预计算的。两个零
@@ -307,7 +300,7 @@ protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
 
     // 假设我们有个组件'label'
     // 'label'在'labelX'和'labelY'处被绘制
-    this.font.draw(pose, label, labelX, labelY, 0x404040);
+    graphics.drawString(this.font, this.label, this.labelX, this.labelY, 0x404040);
 }
 ```
 
