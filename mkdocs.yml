@@ -98,7 +98,7 @@ nav:
 
 # Do not edit in PRs below here
 site_name: MinecraftForge文档 中文翻译
-site_url: https://docs.minecraftforge.net/en/1.19.x/
+site_url: https://docs.minecraftforge.net/en/1.20.x/
 
 markdown_extensions:
   - admonition
