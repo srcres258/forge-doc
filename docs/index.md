@@ -1,11 +1,11 @@
-MinecraftForge Documentation
-============================
+MinecraftForge 文档（中文翻译）
+==============================
 
-This is the official documentation for [MinecraftForge], the Minecraft modding API.
+这里是Minecraft模组API——[MinecraftForge]的官方文档。
 
-This documentation is _only_ for Forge, **this is not a Java tutorial**.
+该文档 _仅_ 针对Forge编纂，**而不是一个Java教程**。
 
-If you would like to contribute to the docs, read [Contributing to the Docs][contributing].
+如果你愿意对文档做出贡献，请阅读[向文档做出贡献][contributing]。
 
 [MinecraftForge]: http://minecraftforge.net
 [contributing]: ./contributing.md

@@ -1,97 +1,97 @@
-Pull Request Guidelines
-=======================
+Pull Request准则
+================
 
-Mods are built on top of Forge, but there are some things that Forge does not support, and that limits what mods can do.  
-When modders run into something like that, they can make a change to Forge to support it, and submit that change as a Pull Request on Github.
+模组是在Forge之上构建的，但有些事情Forge不支持，这限制了模组的功能。
+当模组开发者遇到类似的情况时，他们可以对Forge进行更改以支持它，并将该更改作为Pull Request提交到Github上。
 
-To make the best use of both your and the Forge team's time, it is recommended to follow some rough guidelines when preparing a Pull Request. The following points are the most important aspects to keep in mind when it comes to writing a good Pull Request.
+为了充分利用你和Forge团队的时间，建议在准备Pull Request时遵循一些粗略的指导原则。在编写一个好的Pull Request时，以下几点是需要记住的最重要的方面。
 
-What Exactly is Forge?
-----------------------
-
-At a high level, Forge is a mod compatibility layer on top of Minecraft.   
-Early mods edited Minecraft's code directly (like coremods do now), but they ran into conflicts with each other when they edited the same things. They also ran into issues when one mod changed behavior in ways that the other mods could not anticipate (like coremods do now), causing mysterious issues and lots of headaches.  
-
-By using something like Forge, mods can centralize common changes and avoid conflicts.  
-Forge also includes supporting structures for common mod features like Capabilities, Registries, and others that allow mods to work together better.
-
-When writing a good Forge Pull Request, you also have to know what Forge is at a lower level.   
-There are two main types of code in Forge: Minecraft patches, and Forge code.
-
-Patches
--------
-
-Patches are applied as direct changes to Minecraft's source code, and aim to be as minimal as possible.  
-Every time Minecraft code changes, all the Forge patches need to be looked over carefully and applied correctly to the new code.  
-This means that large patches that change lots of things are difficult to maintain, so Forge aims to avoid those and keep patches as small as possible.  
-In addition to making sure the code makes sense, reviews for patches will focus on minimizing the size.
-
-There are many strategies to make small patches, and reviews will often point out better methods to do things.  
-Forge patches often insert a single line that fires an event or a code hook, which affects the code after it if the event meets some condition.  
-This allows most of the code to exist outside of the patch, which keeps the patch small and simple.
-
-For more detailed information about creating patches, [see the GitHub wiki][patches].
-
-Forge Code
-----------
-
-Aside from the patches, Forge code is just normal Java code. It can be event code, compatibility features, or anything else that is not directly editing Minecraft code.
-When Minecraft updates, Forge code has to update just like everything else. However, it is much easier because it is not directly entangled in the Minecraft code.
-
-Because this code stands on its own, there is no size restriction like there is with the patches.
-
-In addition to making sure the code makes sense, reviews will focus on making the code clean: with proper formatting and Java documentation.
-
-Explain Yourself
+到底什么是Forge？
 ----------------
 
-All Pull Requests need to answer the question: why is this necessary?  
-Any code added to Forge needs to be maintained, and more code means more potential for bugs, so solid justification is needed for adding code.
+在较高级别上，Forge是Minecraft之上的一个模组兼容性层。
+早期的模组直接编辑了Minecraft的代码（就像现在的coremod一样），但当他们编辑相同的东西时，他们会遇到冲突。当一个模组以其他模组无法预料的方式改变行为时（就像现在的coremod一样），他们也遇到了问题，导致了神秘的问题和很多头痛。
 
-A common Pull Request issue is offering no explanation, or giving cryptic examples for how the Pull Request might theoretically be used.
-This only delays the Pull Request process.  
-A clear explanation for the general case is good, but also give a concrete example of how your mod needs this Pull Request.
+通过使用Forge之类的东西，模组可以集中常见的更改并避免冲突。
+Forge还包括通用模组功能的支持结构，如Capability、注册表和其他允许模组更好地协同工作的功能。
 
-Sometimes there is better way to do what you wanted, or a way to do it without a Pull Request at all. Code changes can not be accepted until those possibilities have been completely ruled out.
+在编写一个好的Forge Pull Request时，你还必须知道Forge在较低级别上是什么。
+Forge中有两种主要类型的代码：Minecraft补丁和Forge代码。
 
-Show that it Works
+补丁
+----
+
+补丁是作为对Minecraft源代码的直接更改应用的，且致力于尽可能最小化。
+每次Minecraft代码更改时，都需要仔细查看所有Forge补丁，并将其正确应用于新代码。
+这意味着，改变很多事情的大型补丁很难维护，因此Forge的目标是避免这些补丁，并使补丁尽可能小。
+除了确保代码有意义之外，对补丁的审查将侧重于最小化大小。
+
+制作小补丁有很多策略，评论通常会指出更好的方法。
+Forge补丁程序通常插入一行触发事件或代码挂钩，如果事件满足某些条件，就会影响之后的代码。
+这允许大多数代码存在于补丁之外，从而使补丁保持小而简单。
+
+有关创建补丁的更多详细信息，[请参阅GitHub wiki][patches]。
+
+Forge代码
+---------
+
+除了补丁之外，Forge代码只是普通的Java代码。它可以是事件代码、兼容性功能，也可以是任何不直接编辑Minecraft代码的东西。
+当Minecraft更新时，Forge代码必须像其他一切一样更新。然而，它要容易得多，因为它没有直接纠缠在Minecraft代码中。
+
+因为这个代码是独立的，所以没有像补丁那样的大小限制。
+
+除了确保代码有意义之外，评审（review）还将侧重于使代码干净：使用正确的格式和Java文档。
+
+解释你自己
+---------
+
+所有Pull Request都需要回答一个问题：为什么这是必要的？
+添加到Forge中的任何代码都需要维护，而更多的代码意味着更可能出现错误，因此添加代码需要有充分的理由。
+
+一个常见的Pull Request问题是没有提供解释，或者给出了理论上如何使用Pull Request的神秘例子。
+这只会延迟Pull Request过程。
+对一般情况有一个明确的解释是好的，但也给出了一个具体的例子，说明你的模组如何需要这个Pull Request。
+
+有时有更好的方法来做你想做的事情，或者一种完全不需要Pull Request的方法。在完全排除这些可能性之前，代码更改不能被接受。
+
+证明它有效
+---------
+
+你提交给Forge的代码应该能完美地工作，这取决于你是否能说服评审人员。
+
+最好的方法之一是在Forge中添加一个示例模组或JUnit测试，利用你的新代码并展示它的工作原理。
+
+要使用示例模组设置和运行Forge环境，请参阅[这个指南][forgeenv]。
+
+Forge中的突破性变化
 ------------------
 
-The code you submit to Forge should work perfectly, and it is up to you to convince the reviewers that it does.  
+Forge不能做出破坏依赖它的模组的更改。
+这意味着Pull Request必须确保它们不会破坏与以前Forge版本的二进制兼容性。
+破坏二进制兼容性的更改称为“突破性变化”。
 
-One of the best ways to do that is to add an example mod or JUnit test to Forge that makes use of your new code and shows it working.  
+关于这个有一些例外：
 
-To set up and run a Forge Environment with the example mods, see [this guide][forgeenv].
+* Forge在新的Minecraft版本开始时接受突破性变化，因为Minecraft本身已经为模组开发者造成了突破性变化。
+* 有时需要在该时间窗口之外进行紧急更改，但这种情况很少见，可能会给改装后的Minecraft社区中的每个人带来依赖性头痛。
 
-Breaking Changes in Forge
--------------------------
+在这些特殊时间之外，不接受具有突破性变化的Pull Request。它们必须适应以支持旧的行为，或者等待下一个Minecraft版本。
 
-Forge cannot make changes that break the mods that depend on it.  
-This means that Pull Requests have to ensure that they do not break binary compatibility with previous Forge versions.  
-A change that breaks binary compatibility is called a Breaking Change.
+有耐心、有礼貌、有同情心
+----------------------
 
-There are some exceptions to this:
+在提交Pull Request时，你通常必须通过代码审查并进行多次更改，才能获得最佳的Pull Request。
+请记住，代码审查并不是针对你的判断。代码中的错误不是针对个人的。没有人是完美的，这就是我们合作的原因。
 
-* Forge accepts Breaking Changes at the beginning of new Minecraft versions, where Minecraft itself already causes Breaking Changes for modders.  
-* Sometimes an emergency breaking change is required outside of that time window, but it is rare and can cause dependency headaches for everyone in the modded Minecraft community.
+消极也无济于事。威胁放弃你的Pull Request，转而编写一个coremod，只会让人们感到不安，并使修改后的生态系统变得更糟。
+重要的是，在一起工作时，你要考虑到审查你的Pull Request的人的最佳意图，不要把事情看得太个人化。
 
-Outside of those exceptional times, Pull Requests with breaking changes are not accepted. They must be adapted to support the old behavior or wait for the next Minecraft version.
+审查（Review）
+--------------
 
-Be Patient, Civil, and Empathetic
---------------------------------
+如果你尽最大努力理解Pull Request流程的缓慢和完美主义本质，我们也会尽最大努力了解你的观点。
 
-When submitting Pull Requests, you will often have to survive code review and make several changes before it is the best Pull Request possible.  
-Keep in mind that code review is not judgement against you. Bugs in your code are not personal. Nobody is perfect, and that is why we are working together. 
-
-Negativity will not help. Threatening to give up on your Pull Request and write a coremod instead will just make people upset and make the modded ecosystem worse.  
-It is important that while working together you assume the best intentions of the people who are reviewing your Pull Request and not take things personally.
-
-Review
-------
-
-If you do your best to understand the slow and perfectionistic nature of the Pull Request process, we will do our best to understand your point of view as well.
-
-After your Pull Request has been reviewed and cleaned up to the best of everyone's ability, it will be marked for a final review by Lex, who has the final say on what is included in the project or not.
+在你的Pull Request经过审查并尽所有人所能进行清理后，它将被Lex标记为最终审查，Lex对项目中包含的内容拥有最终发言权。
 
 [patches]: https://github.com/MinecraftForge/MinecraftForge/wiki/If-you-want-to-contribute-to-Forge#conventions-for-coding-patches-for-a-minecraft-class-javapatch
 [forgeenv]: ./index.md
