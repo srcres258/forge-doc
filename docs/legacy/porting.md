@@ -1,9 +1,9 @@
-Porting to Minecraft 1.19
-=========================
+移植到Minecraft 1.19
+====================
 
-Here you can find a list of primers on how to port from old versions to the current version. Some versions are lumped together since that particular version never saw much usage.
+在这里，你可以找到如何从旧版本移植到当前版本的入门资料列表。有些版本被集中在一起，因为那个特定的版本从未有过太多的用途。
 
-|    From -> To     |               Primer                    |
+|    从 -> 到       |               入门资料                   |
 |:-----------------:|:----------------------------------------|
 | 1.12 -> 1.13/1.14 | [Primer by williewillus][112to114]      |
 | 1.14 -> 1.15      | [Primer by williewillus][114to115]      |
