@@ -45,6 +45,10 @@ client {
     // 默认为'<project_name>.main'
     ideaModule 'example.main'
 
+    // 设置运行配置应添加到的文件夹的名称
+    // 默认为项目名称
+    folderName 'example'
+
     // 设置这是否应该运行一个Minecraft客户端
     // 若未指定，将进行以下检查
     // - 是否存在包含'client'的环境变量'thing'
@@ -100,9 +104,6 @@ client {
       'value'
     }
 
-    // 如果不为false，Gradle将在过程结束后停止
-    forceExit true
-
     // 如果为true，则编译所有项目，而不是当前任务的项目
     // 这仅由IntelliJ IDEA使用
     buildAllProjects false
@@ -123,21 +124,21 @@ client {
     // ...
 
     mods {
+        other_mod {
+            // ...
+        }
+
         // 配置'example'模组
         example {
             // 将一个源集添加到模组的源
-            // 建议这样做，而不是手动添加类和资源
             source sourceSets.main
 
-            // 设置模组的类的位置
-            classes sourceSets.api.output
-
-            // 设置模组的资源的位置
-            resources files('./my_resources')
+            // 合并此配置并指定是否覆盖现有属性
+            merge mods.other_mod, true
         }
     }
 }
 ```
 
-[userdev]: https://github.com/MinecraftForge/MinecraftForge/blob/1.19.x/build.gradle#L374-L430
+[userdev]: https://github.com/MinecraftForge/MinecraftForge/blob/42115d37d6a46856e3dc914b54a1ce6d33b9872a/build.gradle#L374-L430
 [buildscript]: https://github.com/MinecraftForge/MinecraftForge/blob/d4836bc769da003528b6cebc7e677a5aa23a8228/build.gradle#L434-L470

@@ -88,13 +88,13 @@ dependencies {
 
 > 默认情况下，添加到开发环境中的非Minecraft依赖项不会包含在构建的artifact中！你必须使用[Jar-In-Jar][jij]在构建时将依赖项包含在artifact中。
 
-[guide]: https://docs.gradle.org/7.6/userguide/dependency_management.html
+[guide]: https://docs.gradle.org/8.1.1/userguide/dependency_management.html
 [mappings]: ../configuration/index.md#human-readable-mappings
 
 [central]: https://central.sonatype.com/
 [CurseMaven]: https://cursemaven.com/
 [Modrinth]: https://docs.modrinth.com/docs/tutorials/maven/
 
-[flat]: https://docs.gradle.org/7.6/userguide/declaring_repositories.html#sub:flat_dir_resolver
+[flat]: https://docs.gradle.org/8.1.1/userguide/declaring_repositories.html#sub:flat_dir_resolver
 
 [jij]: ./jarinjar.md

@@ -53,6 +53,52 @@ mappings {
 
 Parchment是ParchmentMC维护的一个官方项目，它在`official`映射集之上提供开放的、社区源代码的参数名称和javadoc。你可以在[他们的网站][parchment]上学习如何设置和使用Parchment映射。
 
+准备运行任务
+-----------
+
+运行任务（`run*`）有两个独立的管道，这取决于它们是通过`gradlew`还是运行配置执行的。默认情况下，有两个任务用于准备工作区以便执行：
+
+首先，有在`run*`任务之前执行的`prepare*`任务，并确保为游戏准备映射文件。`prepare*Compile`任务通常仅作为`run*`任务的依赖项来执行，以确保游戏在运行之前已编译。
+
+如果你的IDE是Eclipse或IntelliJ IDEA，则可以将运行配置配置为在启动游戏之前执行`prepare*`任务，方法是分别将`enableEclipsePrepareRuns`或`enableIdeaPrepareRuns`设置为`true`。这将允许你在IDE启动游戏之前调用自定义Gradle任务。
+
+```gradle
+minecraft {
+    // ...
+
+    // 为运行配置启用'prepare*'任务
+    enableEclipsePrepareRuns true
+    enableIdeaPrepareRuns true
+}
+```
+
+### 复制IDE资源
+
+`copyIdeResources`属性可用于将`processResources`任务配置的资源复制到IDE的资源输出目录。这允许不调用Gradle（IntelliJ配置为使用IDEA运行器或Eclipse）的IDE运行配置使用构建脚本可配置资源。通常，在替换`mods.toml`等文件中的值时，需要启用此属性。
+这仅通过`copyEclipseResources`和`copyIntellijResources`任务分别适用于Eclipse和IntelliJ IDEA。
+
+```gradle
+minecraft {
+    // ...
+
+    // 将文件从'processResources'复制到IDE的资源输出目录
+    copyIdeResources true
+}
+```
+
+### 运行配置文件夹
+
+如果`generateRunFolders`设置为`true`，则可以将运行配置排序到文件夹中。这将读取特定[运行配置][run]中设置的`folderName`属性，以确定组织性的结构。
+
+```gradle
+minecraft {
+    // ...
+
+    // 如果为true，运行配置将按其'folderName'分组到文件夹中
+    generateRunFolders true
+}
+```
+
 [at]: https://docs.minecraftforge.net/en/latest/advanced/accesstransformers/
 [fart]: https://github.com/MinecraftForge/ForgeAutoRenamingTool
 [parchment]: https://parchmentmc.org/docs/getting-started

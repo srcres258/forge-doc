@@ -7,9 +7,11 @@ nav:
   - 配置选项:
     - 概述: 'configuration/index.md'
     - 运行配置: 'configuration/runs.md'
+    - 进阶主题: 'configuration/advanced.md'
   - 依赖:
     - 概述: 'dependencies/index.md'
     - Jar-in-Jar: 'dependencies/jarinjar.md'
+  - 移植到当前版本: 'porting/5.x_to_6.0.md'
 
 # Do not edit in PRs below here
 site_name: ForgeGradle文档 中文翻译

@@ -10,7 +10,7 @@ ForgeGradle 文档（中文翻译）
 添加该插件
 ---------
 
-ForgeGradle可以使用`plugins`块添加，方法是将MinecraftForge maven添加到可用的plugin repositories中：
+ForgeGradle使用Gradle 8；它可以使用`build.gradle`中的`plugins`块添加，方法是将以下信息添加到`settings.gradle`：
 
 ```gradle
 // 在settings.gradle中
@@ -22,13 +22,18 @@ pluginManagement {
         maven { url = 'https://maven.minecraftforge.net/' }
     }
 }
+
+plugins {
+    // 添加toolchain resolver
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.5.0'
+}
 ```
 
 ```gradle
 // 在build.gradle中
 plugins {
     // 添加ForgeGradle插件
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 
     // ...
 }
