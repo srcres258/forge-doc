@@ -1,5 +1,5 @@
-# Contributing Documentation
+# 贡献文档
 
-Guidelines for contributing can be found [on the docs][contributing].
+贡献指南可[在文档][contributing]中找到。
 
-[contributing]: https://docs.minecraftforge.net/en/latest/contributing/
+[contributing]: https://fg-doc-6x-zh-cn.readthedocs.io/zh_CN/latest/contributing/
