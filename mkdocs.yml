@@ -48,4 +48,4 @@ plugins:
     - with-pdf:
         author: src_resources
         copyright: Copyright (C) 2023 src_resources. All rights reserved.
-        output_path: output/forge-1.19.x.pdf
+        output_path: output/fg-6.x.pdf
