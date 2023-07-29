@@ -43,3 +43,9 @@ extra:
 
 extra_css:
   - css/version_warning_fix.css
+
+plugins:
+    - with-pdf:
+        author: src_resources
+        copyright: Copyright (C) 2023 src_resources. All rights reserved.
+        output_path: output/forge-1.19.x.pdf
