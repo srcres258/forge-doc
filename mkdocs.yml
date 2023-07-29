@@ -1,21 +1,19 @@
 # If you add a page, you must add it to the index here
 nav:
-  - Home: 'index.md'
-  - Contributing to the Docs: 'contributing.md'
-  - Getting Started:
-    - Introduction: 'gettingstarted/index.md'
-  - Configurations:
-    - Introduction: 'configuration/index.md'
-    - Run Configs: 'configuration/runs.md'
-    - Advanced Topics: 'configuration/advanced.md'
-  - Dependencies:
-    - Introduction: 'dependencies/index.md'
+  - 主页: 'index.md'
+  - 向这篇文档做出贡献: 'contributing.md'
+  - 入门:
+    - 概述: 'gettingstarted/index.md'
+  - 配置选项:
+    - 概述: 'configuration/index.md'
+    - 运行配置: 'configuration/runs.md'
+  - 依赖:
+    - 概述: 'dependencies/index.md'
     - Jar-in-Jar: 'dependencies/jarinjar.md'
-  - Porting to this Version: 'porting/5.x_to_6.0.md'
 
 # Do not edit in PRs below here
 site_name: ForgeGradle文档 中文翻译
-site_url: https://docs.minecraftforge.net/en/fg-6.x
+site_url: https://docs.minecraftforge.net/en/fg-5.x
 
 markdown_extensions:
   - admonition
@@ -36,7 +34,7 @@ extra:
   types:
     MinecraftForge: latest
     ForgeGradle: fg-6.x
-  current_version: 6.x
+  current_version: 5.x
   versions:
     5.x: 5.x
     6.x: 6.x
