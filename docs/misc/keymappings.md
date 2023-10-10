@@ -145,7 +145,7 @@ public boolean mouseClicked(double x, double y, int button) {
     如果你不拥有要检查**鼠标**的屏幕，你可以在[**Forge事件总线**][forgebus]上监听`ScreenEvent$MouseButtonPressed`的`Pre`或`Post`事件。
 
 [modbus]: ../concepts/events.md#mod-event-bus
-[controls]: https://minecraft.fandom.com/wiki/Options#Controls
+[controls]: https://minecraft.wiki/w/Options#Controls
 [tk]: ../concepts/internationalization.md#translatablecontents
 [keyinput]: https://www.glfw.org/docs/3.3/input_guide.html#input_key
 [forgebus]: ../concepts/events.md#creating-an-event-handler
