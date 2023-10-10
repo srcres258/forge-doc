@@ -100,7 +100,7 @@ The `BlockModelProvider` is used for generating block models via `BlockModelBuil
 
 ### `ItemModelProvider`
 
-The `ItemModelProvider` is used for generating block models via `ItemModelBuilder` in the `item` folder. Most item models parent `item/generated` and use `layer0` to specify their texture, which can be done using `#singleTexture`.
+The `ItemModelProvider` is used for generating item models via `ItemModelBuilder` in the `item` folder. Most item models parent `item/generated` and use `layer0` to specify their texture, which can be done using `#singleTexture`.
 
 !!! note
     `item/generated` can support five texture layers stacked on top of each other: `layer0`, `layer1`, `layer2`, `layer3`, and `layer4`.
@@ -411,7 +411,7 @@ public CompletableFuture<?> run(CachedOutput cache) {
 [color]: ../../resources/client/models/tinting.md#blockcoloritemcolor
 [overrides]: ../../resources/client/models/itemproperties.md
 [blockstateprovider]: #block-state-provider
-[blockstate]: https://minecraft.fandom.com/wiki/Tutorials/Models#Block_states
+[blockstate]: https://minecraft.wiki/w/Tutorials/Models#Block_states
 [blockmodels]: #blockmodelprovider
 [itemmodels]: #itemmodelprovider
 [properties]: ../../blocks/states.md#implementing-block-states
