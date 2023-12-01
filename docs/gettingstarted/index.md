@@ -38,7 +38,7 @@ Forge入门
 1. 为你选择的IDE生成运行配置:
     * **Eclipse**: 运行`genEclipseRuns`任务。
     * **IntelliJ IDEA**: 运行`genIntellijRuns`任务。如果发生了"module not specified"错误，请将[`ideaModule`属性][config]设置为你的'main'模块（通常为`${project.name}.main`）。
-    * **Visual Studio Code**: 运行`getVSCodeRuns`任务。
+    * **Visual Studio Code**: 运行`genVSCodeRuns`任务。
     * **Other IDEs**: 你可以通过`gradle run*`来直接运行这些配置（如`runClient`、`runServer`、`runData`、`runGameTestServer`）。这对于已提供支持的IDE同样有效。
 
 自定义你的模组信息
